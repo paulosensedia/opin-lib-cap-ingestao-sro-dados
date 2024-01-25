@@ -1,0 +1,22 @@
+{
+    "name": "request_api",
+    "type": "Microsoft.DataFactory/factories/linkedservices",
+    "properties": {
+        "parameters": {
+            "url": {
+                "type": "string"
+            }
+        },
+        "annotations": [],
+        "type": "RestService",
+        "typeProperties": {
+            "url": "@{linkedService().url}",
+            "enableServerCertificateValidation": true,
+            "authenticationType": "Anonymous"
+        },
+        "connectVia": {
+            "referenceName": "integrationRuntime1",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}

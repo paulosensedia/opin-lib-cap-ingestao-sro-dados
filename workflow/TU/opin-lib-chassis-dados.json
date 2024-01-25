@@ -1,0 +1,29 @@
+{
+    "job_id": 154849140880501,
+    "creator_user_name": "leandro.k.oliveira@bradescoseguros.com.br",
+    "run_as_user_name": "leandro.k.oliveira@bradescoseguros.com.br",
+    "run_as_owner": true,
+    "settings": {
+        "name": "opin-lib-chassis-dados",
+        "email_notifications": {
+            "no_alert_for_skipped_runs": false
+        },
+        "webhook_notifications": {},
+        "timeout_seconds": 0,
+        "max_concurrent_runs": 1,
+        "tasks": [
+            {
+                "task_key": "test-connections",
+                "notebook_task": {
+                    "notebook_path": "/vs-chassi/opin-lib-chassis-dados/squad-name/utils/testes_conexoes",
+                    "source": "WORKSPACE"
+                },
+                "existing_cluster_id": "0420-174702-b5v9ime1",
+                "timeout_seconds": 3000,
+                "email_notifications": {}
+            }
+        ],
+        "format": "MULTI_TASK"
+    },
+    "created_time": 1676314734266
+}

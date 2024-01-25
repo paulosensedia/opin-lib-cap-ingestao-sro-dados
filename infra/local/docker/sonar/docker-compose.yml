@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  sonarqube-custom:
+        image: sonarqube:9.1-community
+        build: ./config
+        ports:
+            - "9000:9000"
+        networks:
+            - vpcopeninsurance
+        volumes:
+            - sonarqube_conf:/opt/sonarqube/conf
+            - sonarqube_data:/opt/sonarqube/data
+            - sonarqube_bundled-plugins:/opt/sonarqube/lib/bundled-plugins
+            - ./config/scripts/:/opt/sonarqube/scripts
+        healthcheck:
+            test: "curl -s -X GET localhost:9000/api/system/status"
+            interval: 5s
+            timeout: 3s
+            retries: 30
+        entrypoint: [ "bash", "./scripts/entrypoint.bash" ]
+        #entrypoint: [ "tail", "-f", "/dev/null"]
+
+networks:
+  vpcopeninsurance:
+    ipam:
+      config:
+        - subnet: 10.8.0.0/27
+
+volumes:
+    sonarqube_conf:
+    sonarqube_data:
+    sonarqube_extensions:
+    sonarqube_bundled-plugins:
