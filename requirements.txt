@@ -1,0 +1,10 @@
+pyspark~=3.0.3
+jproperties~=2.1.1
+setuptools~=45.2.0
+delta-spark==1.2.0
+opencensus-ext-azure~=1.0.5
+pytest~=6.2.5
+findspark~=1.4.2
+pyspark-test~=0.2.0
+databricks-test~=0.0.4
+
