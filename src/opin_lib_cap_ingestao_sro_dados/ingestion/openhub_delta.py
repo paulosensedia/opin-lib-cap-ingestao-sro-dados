@@ -116,7 +116,7 @@ def ingestion(dbutils, spark, context, ramos_path, tables_path, input_path, outp
                 cf.valida_volumetria(dbutils, spark,
                                   item.table,
                                   output_path + '/' + item.path_sink,
-                                  output_path + '/cap/validacao/volumetria')
+                                  output_path + '/validacao/cap/volumetria')
 
                 # cf.valida_obrigatoriedade(dbutils, spark,
                 #                        chaves_list,

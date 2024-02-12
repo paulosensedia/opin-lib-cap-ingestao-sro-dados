@@ -1,5 +1,5 @@
 # Databricks notebook source
-# MAGIC %run /vs-opin-ingestao/opin-lib-ingestao-sro-dados/batch/libs/libs
+# MAGIC %run /vs-opin-ingestao/opin-lib-cap-ingestao-sro-dados/batch/libs/libs
 
 # COMMAND ----------
 

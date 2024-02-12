@@ -271,6 +271,12 @@
                         "dependencyConditions": [
                             "Skipped"
                         ]
+                    },
+                    {
+                        "activity": "FILE_VALIDATOR",
+                        "dependencyConditions": [
+                            "Failed"
+                        ]
                     }
                 ],
                 "userProperties": [],
@@ -313,7 +319,7 @@
                         "referenceName": "DATASET_DLAKE_CAP_INGESTAO_SRO",
                         "type": "DatasetReference",
                         "parameters": {
-                            "filePath": "tables_openhub/tables_delta_cap.csv"
+                            "filePath": "tables_openhub/cap_tables_delta.csv"
                         }
                     },
                     "firstRowOnly": false
@@ -376,7 +382,7 @@
                         "referenceName": "DATASET_FSERVER_CAP_INGESTAO_SRO",
                         "type": "DatasetReference",
                         "parameters": {
-                            "filePath": "tables_delta_cap.csv"
+                            "filePath": "cap_tables_delta.csv"
                         }
                     }
                 ],
@@ -385,7 +391,7 @@
                         "referenceName": "DATASET_DLAKE_CAP_INGESTAO_SRO",
                         "type": "DatasetReference",
                         "parameters": {
-                            "filePath": "tables_openhub/tables_delta_cap.csv"
+                            "filePath": "tables_openhub/cap_tables_delta.csv"
                         }
                     }
                 ]
@@ -400,7 +406,7 @@
                         "referenceName": "DATASET_FSERVER_CAP_INGESTAO_SRO",
                         "type": "DatasetReference",
                         "parameters": {
-                            "filePath": "tables_delta_cap.csv"
+                            "filePath": "cap_tables_delta.csv"
                         }
                     },
                     "timeout": "0.00:01:00",
@@ -417,7 +423,7 @@
             "name": "opin-lib-cap-ingestao-sro-dados/pipeline"
         },
         "annotations": [],
-        "lastPublishTime": "2024-02-08T11:51:34Z"
+        "lastPublishTime": "2024-02-09T17:40:41Z"
     },
     "type": "Microsoft.DataFactory/factories/pipelines"
 }

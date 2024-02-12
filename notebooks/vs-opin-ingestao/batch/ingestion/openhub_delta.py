@@ -1,5 +1,5 @@
 # Databricks notebook source
-# MAGIC %run /vs-opin-ingestao/opin-lib-ingestao-sro-dados/batch/libs/libs
+# MAGIC %run /vs-opin-ingestao/opin-lib-cap-ingestao-sro-dados/batch/libs/libs
 
 # COMMAND ----------
 
@@ -11,6 +11,7 @@ from opin_lib_cap_ingestao_sro_dados.ingestion.openhub_delta import *
 
 
 # COMMAND ----------
+
 # DBTITLE 1,Initialize
 env = Environment()
 if env.env_current in (EnvironmentEnum.LOCAL_LINUX, EnvironmentEnum.LOCAL_WIN):
@@ -32,3 +33,7 @@ ingestion(dbutils,
           context.STORAGE_TRANSIENT_INGESTAO_SRO_DELTA,
           context.STORAGE_RAW_INGESTAO_SRO,
          )
+
+# COMMAND ----------
+
+
