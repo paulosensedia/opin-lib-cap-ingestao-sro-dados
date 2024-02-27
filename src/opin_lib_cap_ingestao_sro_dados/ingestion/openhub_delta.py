@@ -12,7 +12,7 @@ def get_tables_name_delta(dbutils, spark, path):
     tables = sf.read_csv_file(dbutils, spark, '|', path, True)
     tables = tables.withColumn('path_source', f.concat(f.col('base'), f.lit('/'), f.col('table')))
     tables = tables.withColumn('path_sink',
-                               f.concat(f.col('base'), f.lit('/'), f.regexp_replace('table', 'ZOHOPIN', 'ZDAOPIN')))
+                               f.concat(f.col('base'), f.lit('/'), f.regexp_replace('table', 'ZOHOPCP', 'ZDAOPCP')))
 
     return tables
 
@@ -116,18 +116,7 @@ def ingestion(dbutils, spark, context, ramos_path, tables_path, input_path, outp
                 cf.valida_volumetria(dbutils, spark,
                                   item.table,
                                   output_path + '/' + item.path_sink,
-                                  output_path + '/validacao/volumetria')
+                                  output_path + '/validacao/cap/volumetria')
 
-                cf.valida_obrigatoriedade(dbutils, spark,
-                                       chaves_list,
-                                       context.STORAGE_TRANSIENT_INGESTAO_SRO + '/validacao/' + table_renamed + '.csv',
-                                       output_path + '/' + item.path_sink,
-                                       output_path + '/validacao/obrigatoriedade/' + table_renamed)
-
-                cf.valida_tipagem(dbutils, spark,
-                               item.table,
-                               context.STORAGE_TRANSIENT_INGESTAO_SRO + '/validacao/' + table_renamed + '.csv',
-                               output_path + '/' + item.path_sink,
-                               output_path + '/validacao/tipagem')
             except Exception:
                 pass

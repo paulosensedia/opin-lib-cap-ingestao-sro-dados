@@ -6,10 +6,10 @@
 
 # COMMAND ----------
 # DBTITLE 1,Imports
-from opin_lib_ingestao_sro_dados.config.context import Context
-from opin_lib_ingestao_sro_dados.vacuum.vacuum_functions import *
-from opin_lib_ingestao_sro_dados.config.util.environment import Environment
-from opin_lib_ingestao_sro_dados.config.util.environment_enum import EnvironmentEnum
+from opin_lib_cap_ingestao_sro_dados.config.context import Context
+from opin_lib_cap_ingestao_sro_dados.vacuum.vacuum_functions import *
+from opin_lib_cap_ingestao_sro_dados.config.util.environment import Environment
+from opin_lib_cap_ingestao_sro_dados.config.util.environment_enum import EnvironmentEnum
 
 
 # COMMAND ----------
@@ -28,15 +28,14 @@ dbutils = context.dbutils
 # DBTITLE 1,Paths
 path_list = []
 
-## Ramo Susep
-path_list.append(context.STORAGE_RAW_INGESTAO_RAMO_SUSEP)
+
 
 ## Premio
-for p in dbutils.fs_ls(context.STORAGE_RAW_INGESTAO_SRO+'/premio'):
+for p in dbutils.fs_ls(context.STORAGE_RAW_INGESTAO_SRO+'/serie'):
     path_list.append(p.path.replace('dbfs:',''))
 
 ## Sinistro
-for s in dbutils.fs_ls(context.STORAGE_RAW_INGESTAO_SRO+'/sinistro'):
+for s in dbutils.fs_ls(context.STORAGE_RAW_INGESTAO_SRO+'/titulo'):
     path_list.append(s.path.replace('dbfs:',''))
 
 

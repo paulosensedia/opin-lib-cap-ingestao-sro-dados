@@ -1,7 +1,3 @@
-#A confirmar
-#opin-001 o que é este codigo?
-
-
 from opin_lib_cap_ingestao_sro_dados.config.configuration import Configuration
 from opin_lib_cap_ingestao_sro_dados.config.util.dbutils.dbutils import DBUtils
 from opin_lib_cap_ingestao_sro_dados.config.util.environment import Environment

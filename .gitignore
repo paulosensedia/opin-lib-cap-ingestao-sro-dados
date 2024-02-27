@@ -1,5 +1,6 @@
+*.egg*
+*.idea*
 .idea/
 /build/
-/.pytest_cache/
-/.eggs/
-/src/*.egg-info/*
+*.pyc*
+*pycache*

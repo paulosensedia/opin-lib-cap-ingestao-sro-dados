@@ -1,0 +1,24 @@
+{
+    "name": "DATASET_FSERVER_INGESTAO_SRO_VALIDACAO",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "azubsfilesystemthopin",
+            "type": "LinkedServiceReference"
+        },
+        "annotations": [],
+        "type": "DelimitedText",
+        "typeProperties": {
+            "location": {
+                "type": "FileServerLocation",
+                "folderPath": "OPIN INGESTAO/SRO/VALIDACAO"
+            },
+            "columnDelimiter": ";",
+            "encodingName": "ISO-8859-1",
+            "escapeChar": "\\",
+            "firstRowAsHeader": true,
+            "quoteChar": ""
+        },
+        "schema": []
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
+}

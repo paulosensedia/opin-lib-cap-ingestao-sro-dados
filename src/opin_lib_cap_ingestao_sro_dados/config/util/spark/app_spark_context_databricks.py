@@ -14,8 +14,8 @@ class AppSparkContextDatabricks(AppSparkContext):
     def create_instance(self, config: Configuration, spark: SparkSession, dbutils):
         spark.conf.set("fs.azure.account.auth.type", "OAuth")
         spark.conf.set("fs.azure.account.oauth.provider.type", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
-        spark.conf.set("fs.azure.account.oauth2.client.id", dbutils.get_kvault(config.get('azu.bsdatalake.applicationid')))
-        spark.conf.set("fs.azure.account.oauth2.client.secret", dbutils.get_kvault(config.get('azu.bsdatalake.authenticationkey')))
-        spark.conf.set("fs.azure.account.oauth2.client.endpoint", f"https://login.microsoftonline.com/{dbutils.get_kvault(config.get('azu.bsdatalake.tenantid'))}/oauth2/token")
+        spark.conf.set("fs.azure.account.oauth2.client.id", dbutils.get_kvault('azu.bsdatalake.applicationid'))
+        spark.conf.set("fs.azure.account.oauth2.client.secret", dbutils.get_kvault('azu.bsdatalake.authenticationkey'))
+        spark.conf.set("fs.azure.account.oauth2.client.endpoint", f"https://login.microsoftonline.com/{dbutils.get_kvault('azu.bsdatalake.tenantid')}/oauth2/token")
         spark.conf.set("spark.databricks.delta.retentionDurationCheck.enabled", False)
         return spark

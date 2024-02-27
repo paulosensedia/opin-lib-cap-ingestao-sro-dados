@@ -16,15 +16,16 @@ if __name__ == '__main__':
         long_description=long_description,
         long_description_content_type='text/markdown',
         author=src.__author__,
-        python_requires=src.__python_requires__,
+        python_requires=">=3.8.5",
         package_dir={'': 'src'},
         packages=find_packages('src', include=[
-            'opin_lib_testes_conexoes*'
+            'opin_lib_cap_ingestao_sro_dados*'
         ], exclude=[
             'tests*'
         ]),
         install_requires=[
             'jproperties==2.1.1'
+            # 'opencensus-ext-azure==1.0.5'
         ],
         include_package_data=True,
         package_data={
@@ -33,5 +34,5 @@ if __name__ == '__main__':
         },
         setup_requires=['pytest-runner'],
         tests_require=['pytest', 'pyspark-test', 'databricks-test'],
-        test_suite='tests'
+        test_suite='tests',
     )

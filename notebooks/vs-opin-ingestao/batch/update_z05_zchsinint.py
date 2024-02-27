@@ -3,12 +3,12 @@
 
 
 # COMMAND ----------
-from opin_lib_ingestao_sro_dados.config.context import Context
-from opin_lib_ingestao_sro_dados.config.util.environment import Environment
-from opin_lib_ingestao_sro_dados.config.util.environment_enum import EnvironmentEnum
-from opin_lib_ingestao_sro_dados.ingestion.openhub_full import *
+from opin_lib_cap_ingestao_sro_dados.config.context import Context
+from opin_lib_cap_ingestao_sro_dados.config.util.environment import Environment
+from opin_lib_cap_ingestao_sro_dados.config.util.environment_enum import EnvironmentEnum
+from opin_lib_cap_ingestao_sro_dados.ingestion.openhub_full import *
 import pyspark.sql.functions as f
-from opin_lib_ingestao_sro_dados.storage_functions import write_delta_file
+from opin_lib_cap_ingestao_sro_dados.storage_functions import write_delta_file
 
 # COMMAND ----------
 # DBTITLE 1,Initialize

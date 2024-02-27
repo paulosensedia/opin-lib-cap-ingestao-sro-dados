@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Tue Sep 19 10:59:10 BRT 2023:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-018a-adbc-dadb-000008453a38 
+on database directory C:\devtools\repo\opin-lib-ingestao-sro-dados\test\opin_lib_ingestao_sro_dados\metastore_db with class loader org.apache.spark.sql.hive.client.IsolatedClientLoader$$anon$1@5f6e546f 
+Loaded from file:/C:/devtools/repo/opin-lib-ingestao-sro-dados/venv/Lib/site-packages/pyspark/jars/derby-10.14.2.0.jar
+java.vendor=ojdkbuild
+java.runtime.version=1.8.0_332-b09
+user.dir=C:\devtools\repo\opin-lib-ingestao-sro-dados\test\opin_lib_ingestao_sro_dados
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

@@ -1,0 +1,33 @@
+{
+    "name": "DATASET_DLAKE_CAP_INGESTAO_SRO",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "azubsdatalakeopin",
+            "type": "LinkedServiceReference"
+        },
+        "parameters": {
+            "filePath": {
+                "type": "string"
+            }
+        },
+        "annotations": [],
+        "type": "DelimitedText",
+        "typeProperties": {
+            "location": {
+                "type": "AzureBlobFSLocation",
+                "fileName": {
+                    "value": "@dataset().filePath",
+                    "type": "Expression"
+                },
+                "folderPath": "ingestao_dados/sro",
+                "fileSystem": "transient"
+            },
+            "columnDelimiter": "|",
+            "escapeChar": "\\",
+            "firstRowAsHeader": true,
+            "quoteChar": "\""
+        },
+        "schema": []
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
+}

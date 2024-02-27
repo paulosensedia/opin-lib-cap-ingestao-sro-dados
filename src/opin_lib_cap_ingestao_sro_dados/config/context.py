@@ -85,3 +85,6 @@ class Context:
         self.STORAGE_TRUSTED_INGESTAO_TABLES_FULL = f"{self.STORAGE_MOUNT_SILVER}{self.config.get('storage.path.ingestao.tables_full')}"
         self.STORAGE_TRUSTED_INGESTAO_TABLES_DELTA = f"{self.STORAGE_MOUNT_SILVER}{self.config.get('storage.path.ingestao.tables_delta')}"
         self.STORAGE_TRUSTED_INGESTAO_SRO = f"{self.STORAGE_MOUNT_SILVER}{self.config.get('storage.path.ingestao.sro')}"
+
+        # STORAGE GOLD
+        self.STORAGE_MOUNT_GOLD = f"{self.STORAGE_MOUNT_PATH}{self.config.get('storage.container.name.gold')}"
