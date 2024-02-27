@@ -1,48 +1,7 @@
 {
-    "name": "ETL_INGESTAO_SRO_DELTA",
+    "name": "ETL_CAPITALIZACAO_INGESTAO_SRO_DELTA",
     "properties": {
         "activities": [
-            {
-                "name": "LOOKUP_TABLES",
-                "type": "Lookup",
-                "dependsOn": [
-                    {
-                        "activity": "COPY_FILE_SERVER_TO_TRANSIENT",
-                        "dependencyConditions": [
-                            "Succeeded"
-                        ]
-                    }
-                ],
-                "policy": {
-                    "timeout": "7.00:00:00",
-                    "retry": 1,
-                    "retryIntervalInSeconds": 30,
-                    "secureOutput": false,
-                    "secureInput": false
-                },
-                "userProperties": [],
-                "typeProperties": {
-                    "source": {
-                        "type": "DelimitedTextSource",
-                        "storeSettings": {
-                            "type": "AzureBlobFSReadSettings",
-                            "recursive": true,
-                            "enablePartitionDiscovery": false
-                        },
-                        "formatSettings": {
-                            "type": "DelimitedTextReadSettings"
-                        }
-                    },
-                    "dataset": {
-                        "referenceName": "DATASET_DLAKE_INGESTAO_SRO",
-                        "type": "DatasetReference",
-                        "parameters": {
-                            "filePath": "tables_openhub/tables_delta.csv"
-                        }
-                    },
-                    "firstRowOnly": false
-                }
-            },
             {
                 "name": "LOOP OPENHUB TABLES",
                 "type": "ForEach",
@@ -73,6 +32,10 @@
                                     ]
                                 }
                             ],
+                            "policy": {
+                                "secureOutput": false,
+                                "secureInput": false
+                            },
                             "userProperties": [],
                             "typeProperties": {
                                 "variableName": "last_request_id",
@@ -95,10 +58,10 @@
                             },
                             "userProperties": [],
                             "typeProperties": {
-                                "notebookPath": "/vs-opin-ingestao/opin-lib-ingestao-sro-dados/batch/ingestion/last_request_id",
+                                "notebookPath": "/vs-opin-ingestao/opin-lib-cap-ingestao-sro-dados/batch/ingestion/last_request_id",
                                 "baseParameters": {
                                     "delta_path": {
-                                        "value": "@concat(\n    '/mnt/bronze/ingestao_dados/sro/',\n    item().base,\n    '/',\n    replace(item().table,'ZOHOPIN','ZDAOPIN')\n)",
+                                        "value": "@concat(\n    '/mnt/bronze/ingestao_dados/sro/',\n    item().base,\n    '/',\n    replace(item().table,'ZOHOPCP','ZDAOPCP')\n)",
                                         "type": "Expression"
                                     }
                                 }
@@ -271,7 +234,7 @@
                 }
             },
             {
-                "name": "INGESTION SRO DELTA",
+                "name": "INGESTION CAP SRO DELTA",
                 "type": "DatabricksNotebook",
                 "dependsOn": [
                     {
@@ -290,11 +253,74 @@
                 },
                 "userProperties": [],
                 "typeProperties": {
-                    "notebookPath": "/vs-opin-ingestao/opin-lib-ingestao-sro-dados/batch/ingestion/openhub_delta"
+                    "notebookPath": "/vs-opin-ingestao/opin-lib-cap-ingestao-sro-dados/batch/ingestion/openhub_delta"
                 },
                 "linkedServiceName": {
                     "referenceName": "azu_bsdatabricksti_linkedservice_sro",
                     "type": "LinkedServiceReference"
+                }
+            },
+            {
+                "name": "DO_NOTHING",
+                "type": "Wait",
+                "dependsOn": [
+                    {
+                        "activity": "INGESTION CAP SRO DELTA",
+                        "dependencyConditions": [
+                            "Skipped"
+                        ]
+                    },
+                    {
+                        "activity": "FILE_VALIDATOR",
+                        "dependencyConditions": [
+                            "Failed"
+                        ]
+                    }
+                ],
+                "userProperties": [],
+                "typeProperties": {
+                    "waitTimeInSeconds": 5
+                }
+            },
+            {
+                "name": "LOOKUP_TABLES",
+                "type": "Lookup",
+                "dependsOn": [
+                    {
+                        "activity": "COPY_FILE_SERVER_TO_TRANSIENT",
+                        "dependencyConditions": [
+                            "Succeeded"
+                        ]
+                    }
+                ],
+                "policy": {
+                    "timeout": "7.00:00:00",
+                    "retry": 1,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "source": {
+                        "type": "DelimitedTextSource",
+                        "storeSettings": {
+                            "type": "AzureBlobFSReadSettings",
+                            "recursive": true,
+                            "enablePartitionDiscovery": false
+                        },
+                        "formatSettings": {
+                            "type": "DelimitedTextReadSettings"
+                        }
+                    },
+                    "dataset": {
+                        "referenceName": "DATASET_DLAKE_CAP_INGESTAO_SRO",
+                        "type": "DatasetReference",
+                        "parameters": {
+                            "filePath": "tables_openhub/cap_tables_delta.csv"
+                        }
+                    },
+                    "firstRowOnly": false
                 }
             },
             {
@@ -351,19 +377,19 @@
                 },
                 "inputs": [
                     {
-                        "referenceName": "DATASET_FSERVER_INGESTAO_SRO",
+                        "referenceName": "DATASET_FSERVER_CAP_INGESTAO_SRO",
                         "type": "DatasetReference",
                         "parameters": {
-                            "filePath": "tables_delta.csv"
+                            "filePath": "cap_tables_delta.csv"
                         }
                     }
                 ],
                 "outputs": [
                     {
-                        "referenceName": "DATASET_DLAKE_INGESTAO_SRO",
+                        "referenceName": "DATASET_DLAKE_CAP_INGESTAO_SRO",
                         "type": "DatasetReference",
                         "parameters": {
-                            "filePath": "tables_openhub/tables_delta.csv"
+                            "filePath": "tables_openhub/cap_tables_delta.csv"
                         }
                     }
                 ]
@@ -375,36 +401,14 @@
                 "userProperties": [],
                 "typeProperties": {
                     "dataset": {
-                        "referenceName": "DATASET_FSERVER_INGESTAO_SRO",
+                        "referenceName": "DATASET_FSERVER_CAP_INGESTAO_SRO",
                         "type": "DatasetReference",
                         "parameters": {
-                            "filePath": "tables_delta.csv"
+                            "filePath": "cap_tables_delta.csv"
                         }
                     },
                     "timeout": "0.00:01:00",
                     "sleep": 10
-                }
-            },
-            {
-                "name": "DO_NOTHING",
-                "type": "Wait",
-                "dependsOn": [
-                    {
-                        "activity": "FILE_VALIDATOR",
-                        "dependencyConditions": [
-                            "Failed"
-                        ]
-                    },
-                    {
-                        "activity": "INGESTION SRO DELTA",
-                        "dependencyConditions": [
-                            "Skipped"
-                        ]
-                    }
-                ],
-                "userProperties": [],
-                "typeProperties": {
-                    "waitTimeInSeconds": 5
                 }
             }
         ],
@@ -414,10 +418,10 @@
             }
         },
         "folder": {
-            "name": "opin-lib-ingestao-sro-dados/pipelines"
+            "name": "opin-lib-cap-ingestao-sro-dados/pipeline"
         },
         "annotations": [],
-        "lastPublishTime": "2023-09-20T10:00:00Z"
+        "lastPublishTime": "2024-02-14T16:23:23Z"
     },
     "type": "Microsoft.DataFactory/factories/pipelines"
 }

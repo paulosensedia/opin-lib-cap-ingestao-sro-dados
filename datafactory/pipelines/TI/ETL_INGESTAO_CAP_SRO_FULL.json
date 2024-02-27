@@ -1,5 +1,5 @@
 {
-    "name": "ETL_INGESTAO_SRO_FULL",
+    "name": "ETL_CAPITALIZACAO_INGESTAO_SRO_FULL",
     "properties": {
         "activities": [
             {
@@ -51,8 +51,8 @@
                                     }
                                 },
                                 "enableStaging": false,
-                                "parallelCopies": 3,
-                                "dataIntegrationUnits": 8,
+                                "parallelCopies": 16,
+                                "dataIntegrationUnits": 32,
                                 "translator": {
                                     "type": "TabularTranslator",
                                     "typeConversion": true,
@@ -110,7 +110,7 @@
                 },
                 "userProperties": [],
                 "typeProperties": {
-                    "notebookPath": "/vs-opin-ingestao/opin-lib-ingestao-sro-dados/batch/ingestion/openhub_full"
+                    "notebookPath": "/vs-opin-ingestao/opin-lib-cap-ingestao-sro-dados/batch/ingestion/openhub_full"
                 },
                 "linkedServiceName": {
                     "referenceName": "azu_bsdatabricksti_linkedservice_sro",
@@ -171,19 +171,22 @@
                 },
                 "inputs": [
                     {
-                        "referenceName": "DATASET_FSERVER_INGESTAO_SRO",
+                        "referenceName": "DATASET_FSERVER_CAP_INGESTAO_SRO",
                         "type": "DatasetReference",
                         "parameters": {
-                            "filePath": "tables_full.csv"
+                            "filePath": {
+                                "value": "cap_tables_full.csv",
+                                "type": "Expression"
+                            }
                         }
                     }
                 ],
                 "outputs": [
                     {
-                        "referenceName": "DATASET_DLAKE_INGESTAO_SRO",
+                        "referenceName": "DATASET_DLAKE_CAP_INGESTAO_SRO",
                         "type": "DatasetReference",
                         "parameters": {
-                            "filePath": "tables_openhub/tables_full.csv"
+                            "filePath": "tables_openhub/cap_tables_full.csv"
                         }
                     }
                 ]
@@ -195,10 +198,10 @@
                 "userProperties": [],
                 "typeProperties": {
                     "dataset": {
-                        "referenceName": "DATASET_FSERVER_INGESTAO_SRO",
+                        "referenceName": "DATASET_FSERVER_CAP_INGESTAO_SRO",
                         "type": "DatasetReference",
                         "parameters": {
-                            "filePath": "tables_full.csv"
+                            "filePath": "cap_tables_full.csv"
                         }
                     },
                     "timeout": "0.00:01:00",
@@ -259,10 +262,10 @@
                         }
                     },
                     "dataset": {
-                        "referenceName": "DATASET_DLAKE_INGESTAO_SRO",
+                        "referenceName": "DATASET_DLAKE_CAP_INGESTAO_SRO",
                         "type": "DatasetReference",
                         "parameters": {
-                            "filePath": "tables_openhub/tables_full.csv"
+                            "filePath": "tables_openhub/cap_tables_full.csv"
                         }
                     },
                     "firstRowOnly": false
@@ -270,10 +273,10 @@
             }
         ],
         "folder": {
-            "name": "opin-lib-ingestao-sro-dados/pipelines"
+            "name": "opin-lib-cap-ingestao-sro-dados/pipeline"
         },
         "annotations": [],
-        "lastPublishTime": "2023-12-12T20:57:07Z"
+        "lastPublishTime": "2024-02-09T18:33:46Z"
     },
     "type": "Microsoft.DataFactory/factories/pipelines"
 }

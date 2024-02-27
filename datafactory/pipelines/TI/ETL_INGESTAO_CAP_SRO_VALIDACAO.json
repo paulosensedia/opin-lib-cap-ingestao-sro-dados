@@ -1,5 +1,5 @@
 {
-    "name": "ETL_INGESTAO_SRO_VALIDACAO",
+    "name": "ETL_INGESTAO_CAP_SRO_VALIDACAO",
     "properties": {
         "activities": [
             {
@@ -24,7 +24,7 @@
                 "userProperties": [],
                 "typeProperties": {
                     "dataset": {
-                        "referenceName": "DATASET_FSERVER_INGESTAO_SRO_VALIDACAO",
+                        "referenceName": "DATASET_FSERVER_CAP_INGESTAO_SRO_VALIDACAO",
                         "type": "DatasetReference"
                     },
                     "fieldList": [
@@ -74,7 +74,7 @@
                                 "source": {
                                     "type": "DelimitedTextSource",
                                     "storeSettings": {
-                                        "type": "FileServerReadSettings",
+                                        "type": "AzureBlobFSReadSettings",
                                         "recursive": true,
                                         "enablePartitionDiscovery": false
                                     },
@@ -105,11 +105,11 @@
                             },
                             "inputs": [
                                 {
-                                    "referenceName": "DATASET_FSERVER_INGESTAO_SRO",
+                                    "referenceName": "DATASET_DLAKE_CAP_INGESTAO_SRO",
                                     "type": "DatasetReference",
                                     "parameters": {
                                         "filePath": {
-                                            "value": "@concat('VALIDACAO/',item().name)",
+                                            "value": "@concat('CAP_VALIDACAO/',item().name)",
                                             "type": "Expression"
                                         }
                                     }
@@ -117,13 +117,10 @@
                             ],
                             "outputs": [
                                 {
-                                    "referenceName": "DATASET_DLAKE_INGESTAO_SRO",
+                                    "referenceName": "DATASET_DLAKE_CAP_INGESTAO_SRO",
                                     "type": "DatasetReference",
                                     "parameters": {
-                                        "filePath": {
-                                            "value": "@concat('validacao/',item().name)",
-                                            "type": "Expression"
-                                        }
+                                        "filePath": "@concat('prev_validacao/',item().name)"
                                     }
                                 }
                             ]
@@ -138,7 +135,7 @@
                 "userProperties": [],
                 "typeProperties": {
                     "dataset": {
-                        "referenceName": "DATASET_FSERVER_INGESTAO_SRO_VALIDACAO",
+                        "referenceName": "DATASET_FSERVER_CAP_INGESTAO_SRO_VALIDACAO",
                         "type": "DatasetReference"
                     },
                     "timeout": "0.00:01:00",
@@ -169,10 +166,10 @@
             }
         ],
         "folder": {
-            "name": "opin-lib-ingestao-sro-dados/pipelines"
+            "name": "opin-lib-cap-ingestao-sro-dados/pipeline"
         },
         "annotations": [],
-        "lastPublishTime": "2023-09-20T10:00:00Z"
+        "lastPublishTime": "2024-02-08T19:12:36Z"
     },
     "type": "Microsoft.DataFactory/factories/pipelines"
 }

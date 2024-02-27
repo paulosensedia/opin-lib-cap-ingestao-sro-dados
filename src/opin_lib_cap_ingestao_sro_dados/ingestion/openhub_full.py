@@ -70,17 +70,6 @@ def ingestion(dbutils, spark, context, ramos_path, tables_path, input_path, outp
                                   item.table,
                                   output_path + '/' + item.path_sink,
                                   output_path + '/validacao/cap/volumetria')
-                #
-                # cf.valida_obrigatoriedade(dbutils, spark,
-                #                        chaves_list,
-                #                        context.STORAGE_TRANSIENT_INGESTAO_SRO + '/validacao/' + table_renamed + '.csv',
-                #                        output_path + '/' + item.path_sink,
-                #                        output_path + '/validacao/obrigatoriedade/' + table_renamed)
-                #
-                # cf.valida_tipagem(dbutils, spark,
-                #                item.table,
-                #                context.STORAGE_TRANSIENT_INGESTAO_SRO + '/validacao/' + table_renamed + '.csv',
-                #                output_path + '/' + item.path_sink,
-                #                output_path + '/validacao/tipagem')
+
             except Exception:
                 pass
