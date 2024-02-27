@@ -71,5 +71,5 @@ def ingestion(dbutils, spark, context, ramos_path, tables_path, input_path, outp
                                   output_path + '/' + item.path_sink,
                                   output_path + '/validacao/cap/volumetria')
 
-            except Exception:
-                pass
+            except Exception as e:
+                cf.log_error(spark, item.table, e, output_path+'/log_errors')
