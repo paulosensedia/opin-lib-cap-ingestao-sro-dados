@@ -1,9 +1,7 @@
-import csv
-import os
 from unittest import mock
 from unittest.mock import MagicMock, patch
 import pytest
-from opin_lib_cap_ingestao_sro_dados.ingestion import openhub_full as ophf
+from opin_lib_cap_ingestao_sro_dados.functions.ingestion import openhub_full as ophf
 
 
 @pytest.mark.usefixtures("spark_session")

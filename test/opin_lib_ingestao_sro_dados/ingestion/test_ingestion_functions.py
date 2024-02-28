@@ -1,11 +1,10 @@
 import csv
 import os
 from unittest import mock
-from unittest.mock import patch
 import pytest
 from pyspark.sql.types import StructType, StructField, LongType, StringType
 from opin_lib_cap_ingestao_sro_dados.config.util.environment import Environment
-from opin_lib_cap_ingestao_sro_dados.ingestion import ingestion_functions as ifu
+from opin_lib_cap_ingestao_sro_dados.functions.ingestion import ingestion_functions as ifu
 
 
 @pytest.mark.usefixtures("spark_session")

@@ -5,13 +5,14 @@
 
 # DBTITLE 1,Imports
 from opin_lib_cap_ingestao_sro_dados.config.context import Context
-from opin_lib_cap_ingestao_sro_dados.ingestion.openhub_full import *
 from opin_lib_cap_ingestao_sro_dados.config.util.environment import Environment
 from opin_lib_cap_ingestao_sro_dados.config.util.environment_enum import EnvironmentEnum
-
+from opin_lib_cap_ingestao_sro_dados.functions.ingestion.openhub_full import ingestion
 
 # COMMAND ----------
 # DBTITLE 1,Initialize
+
+
 env = Environment()
 if env.env_current in (EnvironmentEnum.LOCAL_LINUX, EnvironmentEnum.LOCAL_WIN):
     dbutils = None
