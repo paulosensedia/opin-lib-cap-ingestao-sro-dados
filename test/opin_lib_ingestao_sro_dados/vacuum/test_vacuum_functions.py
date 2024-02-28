@@ -1,4 +1,4 @@
-from opin_lib_cap_ingestao_sro_dados.vacuum import vacuum_functions as vacf
+from opin_lib_cap_ingestao_sro_dados.functions.vacuum import vacuum_functions as vacf
 
 
 def test_vacuum_delta(spark_session):

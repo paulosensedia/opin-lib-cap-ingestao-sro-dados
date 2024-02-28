@@ -1,8 +1,7 @@
-from delta import DeltaTable
 from opin_lib_cap_ingestao_sro_dados import common_functions as cf
 from opin_lib_cap_ingestao_sro_dados.config.util.environment import Environment
 from opin_lib_cap_ingestao_sro_dados import storage_functions as sf
-from opin_lib_cap_ingestao_sro_dados.transformation.transformation_functions import format_date_time, rename_columns, \
+from opin_lib_cap_ingestao_sro_dados.functions.transformation.transformation_functions import format_date_time, rename_columns, \
     add_ramo_susep
 import pyspark.sql.functions as f
 from pyspark.sql import Window

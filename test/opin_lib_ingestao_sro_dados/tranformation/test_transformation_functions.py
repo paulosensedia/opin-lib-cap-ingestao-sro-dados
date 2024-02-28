@@ -1,6 +1,6 @@
 import pytest
 from pyspark import Row
-from opin_lib_cap_ingestao_sro_dados.transformation.transformation_functions import clean_special_char, \
+from opin_lib_cap_ingestao_sro_dados.functions.transformation.transformation_functions import clean_special_char, \
     format_date_time, add_ramo_susep, rename_columns
 from test.opin_lib_ingestao_sro_dados.tranformation.transformation_mock_schemas import schema_multivalues_fields, \
     schema_ramos_fields
