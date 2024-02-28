@@ -7,8 +7,6 @@
 from opin_lib_cap_ingestao_sro_dados.config.context import Context
 from opin_lib_cap_ingestao_sro_dados.config.util.environment import Environment
 from opin_lib_cap_ingestao_sro_dados.config.util.environment_enum import EnvironmentEnum
-from opin_lib_cap_ingestao_sro_dados.ingestion.ramo_susep import *
-
 
 # COMMAND ----------
 # DBTITLE 1,Initialize

@@ -3,7 +3,7 @@ import os
 from unittest import mock
 from unittest.mock import MagicMock, patch
 import pytest
-from opin_lib_cap_ingestao_sro_dados.ingestion import openhub_delta as oph
+from opin_lib_cap_ingestao_sro_dados.functions.ingestion import openhub_delta as oph
 
 
 def test_create_file(spark_session):

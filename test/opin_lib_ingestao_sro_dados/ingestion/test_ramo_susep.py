@@ -3,7 +3,7 @@ from unittest.mock import MagicMock, patch
 import pytest
 from pyspark import Row
 
-from opin_lib_cap_ingestao_sro_dados.ingestion import ramo_susep as rs
+from opin_lib_cap_ingestao_sro_dados.functions.ingestion import ramo_susep as rs
 from test.opin_lib_ingestao_sro_dados.tranformation.transformation_mock_schemas import schema_ramos_fields, \
     schema_multivalues_fields
 from test.opin_lib_ingestao_sro_dados.tranformation.transformation_mock_values import TestDataRamosValuesEnum, \
