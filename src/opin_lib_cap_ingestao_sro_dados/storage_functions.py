@@ -34,19 +34,6 @@ def delete(dbutils, path: str, env: Environment):
             dbutils.fs_rm(file.path, True)
 
 
-def read_json_file(dbutils, spark: SparkSession, path: str):
-    if not is_empty(dbutils, path):
-        data = spark.read.format('json').load(path)
-        return data
-
-
-def read_json_multiline(spark, path):
-    try:
-        return spark.read.option("multiline", "true").json(path)
-    except Exception:
-        return spark.createDataFrame([], StructType([]))
-
-
 def read_text_file(dbutils, spark: SparkSession, file_format: str, has_header: bool,
                    infer_schema: bool, delimiter: str, path: str, charset: str = "UTF-8"):
     if not is_empty(dbutils, path):
@@ -96,14 +83,6 @@ def read_delta_file(dbutils, spark: SparkSession, path: str):
             .load(path)
 
 
-def read_parquet_file(dbutils, spark: SparkSession, path: str):
-    if not is_empty(dbutils, path):
-        return spark.read \
-            .format('parquet') \
-            .option('inferSchema', 'true') \
-            .load(path)
-
-
 def read_delta_table(spark: SparkSession, path: str):
     try:
         table = DeltaTable.forPath(spark, path)
@@ -119,33 +98,3 @@ def write_delta_file(data: DataFrame, path: str, mode: str):
             .option("overwriteSchema", "true") \
             .save(path, mode=mode)
 
-
-def upsert_cosmosdb(data: DataFrame, uri: str, database: str, collection: str, keys: str):
-    data.write \
-        .option("uri", uri) \
-        .option("database", database) \
-        .option("collection", collection) \
-        .option("replaceDocument", "true") \
-        .option('shardKey', f"{keys}") \
-        .mode('append') \
-        .format("com.mongodb.spark.sql") \
-        .save()
-
-
-def write_cosmosdb(data: DataFrame, mode: str, database: str, collection: str, uri: str):
-    if not data.rdd.isEmpty():
-        data.write \
-            .format("mongo") \
-            .mode(mode) \
-            .option("database", database) \
-            .option("collection", collection) \
-            .option("uri", uri) \
-            .save()
-
-
-def write_json(df, path, mode):
-    df.write.format('json').save(path, mode=mode)
-
-
-def write_parquet(path, df, mode):
-    df.write.format('parquet').save(path, mode=mode)
