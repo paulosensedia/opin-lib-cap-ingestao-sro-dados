@@ -7,7 +7,6 @@
 # COMMAND ----------
 # DBTITLE 1,Imports
 from opin_lib_cap_ingestao_sro_dados.config.context import Context
-from opin_lib_cap_ingestao_sro_dados.vacuum.vacuum_functions import *
 from opin_lib_cap_ingestao_sro_dados.config.util.environment import Environment
 from opin_lib_cap_ingestao_sro_dados.config.util.environment_enum import EnvironmentEnum
 

@@ -2,7 +2,7 @@ import pyspark.sql.functions as f
 from opin_lib_cap_ingestao_sro_dados import common_functions as cf
 from opin_lib_cap_ingestao_sro_dados.config.util.environment import Environment
 from opin_lib_cap_ingestao_sro_dados import storage_functions as sf
-from opin_lib_cap_ingestao_sro_dados.transformation.transformation_functions import rename_columns, add_ramo_susep, \
+from opin_lib_cap_ingestao_sro_dados.functions.transformation.transformation_functions import rename_columns, add_ramo_susep, \
     format_date_time
 
 
