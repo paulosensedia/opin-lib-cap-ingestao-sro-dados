@@ -1,0 +1,29 @@
+{
+    "name": "EXEC_PIPELINE_CAP_INGESTAO_SRO_DELTA",
+    "properties": {
+        "activities": [
+            {
+                "name": "EXEC_PIPELINE_CAP_INGESTAO_SRO_DELTA",
+                "type": "ExecutePipeline",
+                "dependsOn": [],
+                "policy": {
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "pipeline": {
+                        "referenceName": "ETL_CAPITALIZACAO_INGESTAO_SRO_DELTA",
+                        "type": "PipelineReference"
+                    },
+                    "waitOnCompletion": true
+                }
+            }
+        ],
+        "folder": {
+            "name": "opin-lib-cap-ingestao-sro-dados/executors"
+        },
+        "annotations": [],
+        "lastPublishTime": "2024-02-08T19:17:05Z"
+    },
+    "type": "Microsoft.DataFactory/factories/pipelines"
+}

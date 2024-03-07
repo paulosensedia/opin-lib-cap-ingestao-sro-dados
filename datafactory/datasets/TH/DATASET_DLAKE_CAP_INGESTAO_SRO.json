@@ -2,7 +2,7 @@
     "name": "DATASET_DLAKE_CAP_INGESTAO_SRO",
     "properties": {
         "linkedServiceName": {
-            "referenceName": "azubsdatalaketiopin",
+            "referenceName": "azubsdatalakethopin",
             "type": "LinkedServiceReference"
         },
         "parameters": {
