@@ -2,7 +2,7 @@
     "name": "DATASET_FSERVER_CAP_INGESTAO_SRO",
     "properties": {
         "linkedServiceName": {
-            "referenceName": "azubsfilesystemtiopin",
+            "referenceName": "azubsfilesystemthopin",
             "type": "LinkedServiceReference"
         },
         "parameters": {
