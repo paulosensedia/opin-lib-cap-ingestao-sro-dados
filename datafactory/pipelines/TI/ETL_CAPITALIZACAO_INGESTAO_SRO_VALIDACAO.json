@@ -109,7 +109,7 @@
                                     "type": "DatasetReference",
                                     "parameters": {
                                         "filePath": {
-                                            "value": "@concat('CAP_VALIDACAO/',item().name)",
+                                            "value": "@concat('validacao/cap/',item().name)",
                                             "type": "Expression"
                                         }
                                     }
