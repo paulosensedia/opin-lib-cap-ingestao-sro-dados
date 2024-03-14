@@ -5,7 +5,14 @@
             {
                 "name": "EXEC_PIPELINE_CAP_INGESTAO_SRO_FULL",
                 "type": "ExecutePipeline",
-                "dependsOn": [],
+                "dependsOn": [
+                    {
+                        "activity": "EXEC_PIPELINE_CAP_INGESTAO_SRO_VALIDACAO",
+                        "dependencyConditions": [
+                            "Completed"
+                        ]
+                    }
+                ],
                 "policy": {
                     "secureInput": false
                 },
@@ -17,13 +24,29 @@
                     },
                     "waitOnCompletion": true
                 }
+            },
+            {
+                "name": "EXEC_PIPELINE_CAP_INGESTAO_SRO_VALIDACAO",
+                "type": "ExecutePipeline",
+                "dependsOn": [],
+                "policy": {
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "pipeline": {
+                        "referenceName": "ETL_CAPITALIZACAO_INGESTAO_SRO_VALIDACAO",
+                        "type": "PipelineReference"
+                    },
+                    "waitOnCompletion": true
+                }
             }
         ],
         "folder": {
             "name": "opin-lib-cap-ingestao-sro-dados/executors"
         },
         "annotations": [],
-        "lastPublishTime": "2024-02-08T19:23:19Z"
+        "lastPublishTime": "2024-03-07T20:33:50Z"
     },
     "type": "Microsoft.DataFactory/factories/pipelines"
 }

@@ -64,7 +64,7 @@
                             },
                             "inputs": [
                                 {
-                                    "referenceName": "DATASET_OPENHUB_INGESTAO_SRO",
+                                    "referenceName": "DATASET_OPENHUB_CAP_INGESTAO_SRO",
                                     "type": "DatasetReference",
                                     "parameters": {
                                         "table": {
@@ -113,7 +113,7 @@
                     "notebookPath": "/vs-opin-ingestao/opin-lib-cap-ingestao-sro-dados/batch/ingestion/openhub_full"
                 },
                 "linkedServiceName": {
-                    "referenceName": "azu_bsdatabricksth_linkedservice_sro",
+                    "referenceName": "azu_bsdatabricks_linkedservice_sro",
                     "type": "LinkedServiceReference"
                 }
             },

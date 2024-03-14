@@ -1,0 +1,24 @@
+{
+    "name": "DATASET_OPENHUB_CAP_INGESTAO_SRO",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "azubsopenhubsropin",
+            "type": "LinkedServiceReference"
+        },
+        "parameters": {
+            "table": {
+                "type": "string"
+            }
+        },
+        "annotations": [],
+        "type": "SapOpenHubTable",
+        "schema": [],
+        "typeProperties": {
+            "openHubDestinationName": {
+                "value": "@dataset().table",
+                "type": "Expression"
+            }
+        }
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
+}
