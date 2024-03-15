@@ -76,7 +76,7 @@
                             ],
                             "outputs": [
                                 {
-                                    "referenceName": "DATASET_DLAKE_INGESTAO_SRO",
+                                    "referenceName": "DATASET_DLAKE_CAP_INGESTAO_SRO",
                                     "type": "DatasetReference",
                                     "parameters": {
                                         "filePath": {
@@ -113,7 +113,7 @@
                     "notebookPath": "/vs-opin-ingestao/opin-lib-cap-ingestao-sro-dados/batch/ingestion/openhub_full"
                 },
                 "linkedServiceName": {
-                    "referenceName": "azu_bsdatabricks_linkedservice_sro",
+                    "referenceName": "azu_bsdatabricksth_linkedservice_sro",
                     "type": "LinkedServiceReference"
                 }
             },
@@ -276,7 +276,7 @@
             "name": "opin-lib-cap-ingestao-sro-dados/pipeline"
         },
         "annotations": [],
-        "lastPublishTime": "2024-02-09T18:33:46Z"
+        "lastPublishTime": "2024-03-08T14:27:06Z"
     },
     "type": "Microsoft.DataFactory/factories/pipelines"
 }
