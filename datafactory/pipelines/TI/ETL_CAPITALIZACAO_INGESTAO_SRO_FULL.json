@@ -174,10 +174,7 @@
                         "referenceName": "DATASET_FSERVER_CAP_INGESTAO_SRO",
                         "type": "DatasetReference",
                         "parameters": {
-                            "filePath": {
-                                "value": "cap_tables_full.csv",
-                                "type": "Expression"
-                            }
+                            "filePath": "cap_tables_full.csv"
                         }
                     }
                 ],
