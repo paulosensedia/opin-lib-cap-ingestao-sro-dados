@@ -67,7 +67,7 @@
                                 }
                             },
                             "linkedServiceName": {
-                                "referenceName": "azu_bsdatabricks_linkedservice_sro",
+                                "referenceName": "azu_bsdatabricksth_linkedservice_sro",
                                 "type": "LinkedServiceReference"
                             }
                         },
@@ -256,7 +256,7 @@
                     "notebookPath": "/vs-opin-ingestao/opin-lib-cap-ingestao-sro-dados/batch/ingestion/openhub_delta"
                 },
                 "linkedServiceName": {
-                    "referenceName": "azu_bsdatabricks_linkedservice_sro",
+                    "referenceName": "azu_bsdatabricksth_linkedservice_sro",
                     "type": "LinkedServiceReference"
                 }
             },
@@ -421,7 +421,7 @@
             "name": "opin-lib-cap-ingestao-sro-dados/pipeline"
         },
         "annotations": [],
-        "lastPublishTime": "2024-02-26T17:24:10Z"
+        "lastPublishTime": "2024-03-08T14:27:07Z"
     },
     "type": "Microsoft.DataFactory/factories/pipelines"
 }
