@@ -1,0 +1,32 @@
+{
+    "name": "TRIGGER_EXEC_PIPELINE_CAP_INGESTAO_SRO_DELTA",
+    "properties": {
+        "annotations": [],
+        "runtimeState": "Started",
+        "pipelines": [
+            {
+                "pipelineReference": {
+                    "referenceName": "EXEC_PIPELINE_CAP_INGESTAO_SRO_DELTA",
+                    "type": "PipelineReference"
+                }
+            }
+        ],
+        "type": "ScheduleTrigger",
+        "typeProperties": {
+            "recurrence": {
+                "frequency": "Day",
+                "interval": 1,
+                "startTime": "2024-03-15T17:02:00",
+                "timeZone": "SA Eastern Standard Time",
+                "schedule": {
+                    "minutes": [
+                        0
+                    ],
+                    "hours": [
+                        17
+                    ]
+                }
+            }
+        }
+    }
+}
