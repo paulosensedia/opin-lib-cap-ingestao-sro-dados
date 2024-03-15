@@ -1,8 +1,8 @@
 {
-    "name": "DATASET_FSERVER_INGESTAO_SRO_VALIDACAO",
+    "name": "DATASET_FSERVER_CAP_INGESTAO_SRO_VALIDACAO",
     "properties": {
         "linkedServiceName": {
-            "referenceName": "azubsfilesystemthopin",
+            "referenceName": "azubsfilesystempropin",
             "type": "LinkedServiceReference"
         },
         "annotations": [],
@@ -10,7 +10,7 @@
         "typeProperties": {
             "location": {
                 "type": "FileServerLocation",
-                "folderPath": "OPIN INGESTAO/SRO/VALIDACAO"
+                "folderPath": "OPIN INGESTAO/SRO/CAP_VALIDACAO"
             },
             "columnDelimiter": ";",
             "encodingName": "ISO-8859-1",
