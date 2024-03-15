@@ -144,7 +144,7 @@
                                         ],
                                         "outputs": [
                                             {
-                                                "referenceName": "DATASET_DLAKE_INGESTAO_SRO",
+                                                "referenceName": "DATASET_DLAKE_CAP_INGESTAO_SRO",
                                                 "type": "DatasetReference",
                                                 "parameters": {
                                                     "filePath": {
@@ -216,7 +216,7 @@
                                         ],
                                         "outputs": [
                                             {
-                                                "referenceName": "DATASET_DLAKE_INGESTAO_SRO",
+                                                "referenceName": "DATASET_DLAKE_CAP_INGESTAO_SRO",
                                                 "type": "DatasetReference",
                                                 "parameters": {
                                                     "filePath": {
