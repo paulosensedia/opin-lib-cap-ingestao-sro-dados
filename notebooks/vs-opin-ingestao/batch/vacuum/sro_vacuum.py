@@ -1,8 +1,8 @@
 # Databricks notebook source
-# MAGIC %sh pip uninstall -y opin-lib-ingestao-sro-dados
+%sh pip uninstall -y opin-lib-ingestao-sro-dados
 
 # COMMAND ----------
-# MAGIC %run /vs-opin-ingestao/opin-lib-ingestao-sro-dados/batch/libs/libs
+%run /vs-opin-ingestao/opin-lib-ingestao-sro-dados/batch/libs/libs
 
 # COMMAND ----------
 # DBTITLE 1,Imports
