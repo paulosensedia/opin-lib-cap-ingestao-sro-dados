@@ -110,6 +110,7 @@ def ingestion(dbutils, spark, context, ramos_path, tables_path, input_path, outp
 
             # ============= VALIDAÇÕES DA CARGA =============#
             #table_renamed = item.table.replace('ZOHOPIN', 'ZDAOPIN')
+
             #
             #try:
             #    cf.valida_volumetria(dbutils, spark,
