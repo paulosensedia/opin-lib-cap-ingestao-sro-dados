@@ -109,15 +109,15 @@ def ingestion(dbutils, spark, context, ramos_path, tables_path, input_path, outp
             sf.delete(dbutils, input_path + '/' + item.path_source + '.csv', env)
 
             # ============= VALIDAÇÕES DA CARGA =============#
-            #table_renamed = item.table.replace('ZOHOPIN', 'ZDAOPIN')
+            table_renamed = item.table.replace('ZOHOPIN', 'ZDAOPIN')
 
-            #
-            #try:
-            #    cf.valida_volumetria(dbutils, spark,
-            #                      item.table,
-            #                      output_path + '/' + item.path_sink,
-            #                      output_path + '/validacao/cap/volumetria')
-            #
+     
+            try:
+                cf.valida_volumetria(dbutils, spark,
+                                  item.table,
+                                  output_path + '/' + item.path_sink,
+                                  output_path + '/validacao/cap/volumetria')
+            
             #    cf.valida_obrigatoriedade(dbutils, spark,
             #                              chaves_list,
             #                              context.STORAGE_TRANSIENT_INGESTAO_SRO + '/validacao/cap/' + table_renamed + '.csv',
@@ -130,5 +130,5 @@ def ingestion(dbutils, spark, context, ramos_path, tables_path, input_path, outp
             #                      output_path + '/' + item.path_sink,
             #                      output_path + '/validacao/cap/tipagem')
             #
-            #except Exception as e:
-            #    cf.log_error(spark, item.table, e, output_path+'/log_errors')
+            except Exception as e:
+                cf.log_error(spark, item.table, e, output_path+'/log_errors')

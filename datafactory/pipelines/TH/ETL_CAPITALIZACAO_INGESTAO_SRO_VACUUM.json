@@ -18,7 +18,7 @@
                     "notebookPath": "/vs-opin-ingestao/opin-lib-cap-ingestao-sro-dados/batch/vacuum/sro_vacuum"
                 },
                 "linkedServiceName": {
-                    "referenceName": "azu_bsdatabrickstu_linkedservice_cap_transacional",
+                    "referenceName": "azu_bsdatabricksth_linkedservice_sro",
                     "type": "LinkedServiceReference"
                 }
             }
