@@ -1,0 +1,31 @@
+{
+    "name": "ETL_CAPITALIZACAO_INGESTAO_SRO_VACUUM",
+    "properties": {
+        "activities": [
+            {
+                "name": "VACUUM",
+                "type": "DatabricksNotebook",
+                "dependsOn": [],
+                "policy": {
+                    "timeout": "0.12:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "notebookPath": "/vs-opin-ingestao/opin-lib-cap-ingestao-sro-dados/batch/vacuum/sro_vacuum"
+                },
+                "linkedServiceName": {
+                    "referenceName": "azu_bsdatabricks_linkedservice_sro",
+                    "type": "LinkedServiceReference"
+                }
+            }
+        ],
+        "folder": {
+            "name": "opin-lib-cap-ingestao-sro-dados/pipeline"
+        },
+        "annotations": []
+    }
+}
