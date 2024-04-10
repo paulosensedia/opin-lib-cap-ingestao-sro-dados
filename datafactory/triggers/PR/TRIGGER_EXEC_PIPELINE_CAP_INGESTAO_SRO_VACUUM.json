@@ -1,0 +1,35 @@
+{
+  "name": "TRIGGER_EXEC_PIPELINE_CAP_INGESTAO_SRO_VACUUM",
+  "properties": {
+    "annotations": [],
+    "runtimeState": "Stopped",
+    "pipelines": [
+      {
+        "pipelineReference": {
+          "referenceName": "ETL_CAPITALIZACAO_INGESTAO_SRO_VACUUM",
+          "type": "PipelineReference"
+        }
+      }
+    ],
+    "type": "ScheduleTrigger",
+    "typeProperties": {
+      "recurrence": {
+        "frequency": "Week",
+        "interval": 1,
+        "startTime": "2024-03-26T18:34:00",
+        "timeZone": "E. South America Standard Time",
+        "schedule": {
+          "minutes": [
+            0
+          ],
+          "hours": [
+            12
+          ],
+          "weekDays": [
+            "Friday"
+          ]
+        }
+      }
+    }
+  }
+}
