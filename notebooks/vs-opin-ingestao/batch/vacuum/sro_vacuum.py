@@ -1,6 +1,6 @@
 # Databricks notebook source
 %sh pip uninstall -y opin-lib-ingestao-sro-dados
-
+# COMMAND ----------
 import os
 if os.getenv("AMBIENTE"):
     os.system("pip install /dbfs/FileStore/jars/commons/jproperties-2.1.1-py2.py3-none-any.whl")
