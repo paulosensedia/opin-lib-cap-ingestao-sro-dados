@@ -20,13 +20,13 @@
         "timeZone": "E. South America Standard Time",
         "schedule": {
           "minutes": [
-            0
+            30
           ],
           "hours": [
-            12
+            17
           ],
           "weekDays": [
-            "Friday"
+            "Saturday"
           ]
         }
       }
