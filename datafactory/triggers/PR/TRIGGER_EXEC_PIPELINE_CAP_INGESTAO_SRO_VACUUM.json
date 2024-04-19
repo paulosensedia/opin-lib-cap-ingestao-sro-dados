@@ -2,7 +2,7 @@
   "name": "TRIGGER_EXEC_PIPELINE_CAP_INGESTAO_SRO_VACUUM",
   "properties": {
     "annotations": [],
-    "runtimeState": "Stopped",
+    "runtimeState": "Started",
     "pipelines": [
       {
         "pipelineReference": {
@@ -16,17 +16,17 @@
       "recurrence": {
         "frequency": "Week",
         "interval": 1,
-        "startTime": "2024-03-26T18:34:00",
+        "startTime": "2024-04-27T17:00:00",
         "timeZone": "E. South America Standard Time",
         "schedule": {
           "minutes": [
-            0
+            30
           ],
           "hours": [
-            12
+            17
           ],
           "weekDays": [
-            "Friday"
+            "Saturday"
           ]
         }
       }
