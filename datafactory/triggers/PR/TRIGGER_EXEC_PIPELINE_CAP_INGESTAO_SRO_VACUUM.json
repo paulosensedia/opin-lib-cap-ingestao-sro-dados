@@ -2,7 +2,7 @@
   "name": "TRIGGER_EXEC_PIPELINE_CAP_INGESTAO_SRO_VACUUM",
   "properties": {
     "annotations": [],
-    "runtimeState": "Stopped",
+    "runtimeState": "Started",
     "pipelines": [
       {
         "pipelineReference": {
